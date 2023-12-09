@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Categories = () => {
   // Начальное состояние - "Все"
   const [activeCategory, setActiveCategory] = useState('Все');
-
+  const Categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
   // Функция для обновления активной категории
   const updateActiveCategory = (category) => {
     setActiveCategory(category);
@@ -13,7 +13,7 @@ const Categories = () => {
     <div className="categories">
       <ul>
         {/* Используйте функцию map для создания элементов списка */}
-        {['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'].map((category) => (
+        {Categories.map((category) => (
           <li 
             key={category}
             onClick={() => updateActiveCategory(category)}
