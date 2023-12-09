@@ -1,17 +1,30 @@
-const Categories = () => {
+import React, { useState } from 'react';
 
+const Categories = () => {
+  // Начальное состояние - "Все"
+  const [activeCategory, setActiveCategory] = useState('Все');
+
+  // Функция для обновления активной категории
+  const updateActiveCategory = (category) => {
+    setActiveCategory(category);
+  };
 
   return (
     <div className="categories">
       <ul>
-        <li onClick={AddActive} className="active">Все</li>
-        <li>Мясные</li>
-        <li>Вегетарианская</li>
-        <li>Гриль</li>
-        <li>Острые</li>
-        <li>Закрытые</li>
+        {/* Используйте функцию map для создания элементов списка */}
+        {['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'].map((category) => (
+          <li 
+            key={category}
+            onClick={() => updateActiveCategory(category)}
+            className={activeCategory === category ? 'active' : ''}
+          >
+            {category}
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
+
 export default Categories;
