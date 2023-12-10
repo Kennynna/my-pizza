@@ -1,25 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react'
 
 const Categories = () => {
   // Начальное состояние - "Все"
-  const [activeCategory, setActiveCategory] = useState('Все');
-  const Categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
+  const [activeCategory, setActiveCategory] = React.useState('Все');
+  const сategoriesarr = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
   // Функция для обновления активной категории
-  const updateActiveCategory = (category) => {
-    setActiveCategory(category);
+  const onClickCategory = (index) => {
+    setActiveCategory(index);
   };
 
   return (
     <div className="categories">
       <ul>
         {/* Используйте функцию map для создания элементов списка */}
-        {Categories.map((category) => (
+        {сategoriesarr.map((value,i) => (
           <li 
-            key={category}
-            onClick={() => updateActiveCategory(category)}
-            className={activeCategory === category ? 'active' : ''}
-          >
-            {category}
+            onClick={() => onClickCategory(i)}
+            className={activeCategory === i ? 'active' : ''}>
+            {value}
           </li>
         ))}
       </ul>
