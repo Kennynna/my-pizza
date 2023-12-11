@@ -2,7 +2,7 @@ import React from 'react'
 
 const Categories = () => {
 // Начальное состояние - "Все"
-  const [activeCategory, setActiveCategory] = React.useState(0);
+  const [activeCategory, setActiveCategory] = React.useState(0);//
 //массив с категориями
   const сategoriesArr = [
   'Все', 
