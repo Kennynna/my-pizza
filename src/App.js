@@ -7,7 +7,8 @@ import Categories from './components/Categories';
 import Sort from './components/Sort';
 import PizzaBlcok from './components/PizzaBlock';
 
-
+//json
+import pizzas from './assets/pizzas.json';
 
 function App() {
   return (
@@ -21,9 +22,23 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-          <PizzaBlcok  title = 'Мексиканская' price={500}/>
-          <PizzaBlcok  title = 'Куринная' price={300}/>
+          {pizzas.map((obj) => {
+            return(
 
+              
+              <PizzaBlcok {...obj} //1 вариант если мы уверены что имена объектов будут совпадать с именами нашимх пропсов в функции             
+
+              
+              //2 вариант 
+              /**title = {obj.title} //слева это наши пропсы из PizzaBlock а справа это наш json Объект с пиццами
+              price={obj.price} 
+              imageUrl={obj.imageUrl}
+              sizes={obj.sizes}
+              types={obj.types} */ 
+              />
+
+            )
+          })}
           </div>
         </div>
       </div>
