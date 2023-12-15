@@ -15,6 +15,7 @@ function PizzaBlcok({ title, price, imageUrl, sizes, types }) {
         <ul>
           {types.map((type) => (
             <li 
+            key={type}
             onClick={() => setActiveType(type)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
             className={activeType === type ? 'active': ''}>{typesNames[type]} 
             </li>

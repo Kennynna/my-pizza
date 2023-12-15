@@ -22,7 +22,8 @@ const Categories = () => {
       <ul>
         {/* Используйте функцию map для создания элементов списка */}
         {сategoriesArr.map((value,i) => (
-          <li 
+          <li
+            key={i} 
             onClick={() => onClickCategory(i)}
             className={activeCategory === i ? 'active' : ''}>
             {value}
