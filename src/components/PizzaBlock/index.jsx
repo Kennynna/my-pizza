@@ -1,31 +1,35 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function PizzaBlcok({ title, price, imageUrl, sizes, types }) {
   const typesNames = ["тонкое", "традиционное"];
-  const [activeType, setActiveType] = React.useState(0)
-  const [activeSize, setActiveSize] = React.useState(0)
-
-
+  const [activeType, setActiveType] = React.useState(0);
+  const [activeSize, setActiveSize] = React.useState(0);
 
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
+
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
           {types.map((type) => (
-            <li 
-            key={type}
-            onClick={() => setActiveType(type)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
-            className={activeType === type ? 'active': ''}>{typesNames[type]} 
+            <li
+              key={type}
+              onClick={() => setActiveType(type)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
+              className={activeType === type ? "active" : ""}
+            >
+              {typesNames[type]}
             </li>
           ))}
         </ul>
         <ul>
-          {sizes.map((size,i) => (
-            <li 
-            onClick={() => setActiveSize(i)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
-            className={activeSize === i ? 'active': ''}>{size} см.
+          {sizes.map((size, i) => (
+            <li
+              onClick={() => setActiveSize(i)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
+              className={activeSize === i ? "active" : ""}
+            >
+              {size} см.
             </li>
           ))}
         </ul>

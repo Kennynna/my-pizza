@@ -7,6 +7,8 @@ body {
   background: -webkit-linear-gradient(180deg, rgb(180, 94, 60) 25%, rgb(125, 71, 17) 71%, rgb(97, 11, 11) 88%);
   background: -moz-linear-gradient(180deg, rgb(222, 136, 102) 25%, rgb(125, 71, 17) 71%, rgb(97, 11, 11) 88%);
   background: linear-gradient(180deg, rgba(162, 52, 22, 0.79)25%, rgb(125, 71, 17) 71%, rgb(97, 11, 11) 88%);
+  background-repeat: no-repeat;
+  min-height:  100vh;
 }
 
 .wrapper {
