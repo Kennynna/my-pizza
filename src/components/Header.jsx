@@ -13,11 +13,11 @@ const Header = () => {
             </div>
           </div>
         </Link>
-        <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
-            <span>520 ₽</span>
-            <div className="button__delimiter"></div>
-            <Link to={`/cart`}>
+        <Link to={`/cart`}>
+          <div className="header__cart">
+            <a href="/cart.html" className="button button--cart">
+              <span>520 ₽</span>
+              <div className="button__delimiter"></div>
               <svg
                 width="18"
                 height="18"
@@ -47,10 +47,10 @@ const Header = () => {
                   strokeLiinejoin="round"
                 />
               </svg>
-            </Link>
-            <span>3</span>
-          </a>
-        </div>
+              <span>3</span>
+            </a>
+          </div>
+        </Link>
       </div>
     </div>
   );
