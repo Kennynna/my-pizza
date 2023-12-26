@@ -27,5 +27,18 @@
         color: #fff;
       }
     }
+    @media(max-width: 1400px) {
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    
+    
+  }
+  
+  @media(max-width: 330px) {
+    li{
+      font-size: 10px !important;
+    }
   }
 }

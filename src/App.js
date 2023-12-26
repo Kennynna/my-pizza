@@ -11,7 +11,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import Cart from './pages/Cart/Cart';
-
+import Login from './pages/Login';
 //Router
 import {
   BrowserRouter,
@@ -32,15 +32,16 @@ function App() {
     <div className="wrapper">
       <Header />
       <div className="content">
-        <div className="container">
+
           <Routes>
             <Route path='/'  element={<Home />}/>
             <Route path='/cart'  element={<Cart />}/>
             <Route path='*'  element={<NotFound />}/>
+            <Route path='/login'  element={<Login />}/>
           </Routes>
         </div>
       </div>
-    </div>
+
   );
 }
 

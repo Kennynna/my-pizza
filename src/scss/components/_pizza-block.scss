@@ -4,13 +4,27 @@
   width: 280px;
   text-align: center;
   margin-bottom: 65px;
-
-  &:not(:nth-of-type(4n)) {
-    gap: 40px;
+  @media(max-width: 440px) {
+    width: 194px;
+    &__title {
+      font-size: 16px !important;
+    }
+    li{
+      font-size: 12px !important;
+    }
+  }
+  @media(max-width: 360px) {
+    margin-bottom: 0px;
   }
 
   &__image {
     width: 260px;
+    @media(max-width: 440px) {
+      width: 230px;
+    }
+    @media(max-width: 380px) {
+      width: 150px;
+    }
   }
 
   &__title {
@@ -30,6 +44,7 @@
     ul {
       display: flex;
       flex: 1;
+      
       
 
       &:first-of-type {
@@ -58,6 +73,10 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+    @media(max-width: 440px) {
+      flex-direction: column;
+      gap: 10px;
+  }
   }
 
   &__price {

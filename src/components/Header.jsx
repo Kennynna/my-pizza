@@ -13,6 +13,11 @@ const Header = () => {
             </div>
           </div>
         </Link>
+
+        <Link to={`/Login`}>
+        <div className="header__Login">Login</div>
+        </Link>
+
         <Link to={`/cart`}>
           <div className="header__cart">
             <a href="/cart.html" className="button button--cart">
@@ -51,6 +56,8 @@ const Header = () => {
             </a>
           </div>
         </Link>
+
+
       </div>
     </div>
   );

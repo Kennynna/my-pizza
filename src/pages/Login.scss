@@ -1,0 +1,49 @@
+.login-page {
+    background-color: #fff5e6; // цвет, напоминающий тесто пиццы
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  
+    .form {
+      background-color: #f2d7d5; // светло-коричневый цвет, напоминающий соус
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+  
+      form {
+        display: flex;
+        flex-direction: column;
+  
+        input {
+          margin-bottom: 10px;
+          padding: 10px;
+          border: 2px solid #e6b800; // цвет сыра
+          border-radius: 4px;
+          &:focus {
+            border-color: #ff4500; // цвет пепперони
+          }
+        }
+  
+        button {
+          background-color: #ff4500; // цвет пепперони
+          color: white;
+          border: none;
+          padding: 10px;
+          border-radius: 4px;
+          cursor: pointer;
+          &:hover {
+            background-color: #e63e00; // более темный оттенок пепперони
+          }
+        }
+  
+        .message {
+          color: #155724; // цвет базилика
+          margin-top: 10px;
+        }
+      }
+    }
+  }

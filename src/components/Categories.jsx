@@ -1,8 +1,7 @@
 import React from 'react'
 
-const Categories = () => {
-// Начальное состояние - "Все"
-  const [activeCategory, setActiveCategory] = React.useState(0);//
+const Categories = ({value, onChangeCategory}) => {
+
 //массив с категориями
   const сategoriesArr = [
   'Все', 
@@ -12,21 +11,17 @@ const Categories = () => {
   'Острые', 
   'Закрытые'
 ]
-  // Функция для обновления активной категории
-  const onClickCategory = (index) => {
-    setActiveCategory(index);
-  };
 
   return (
     <div className="categories">
       <ul>
         {/* Используйте функцию map для создания элементов списка */}
-        {сategoriesArr.map((value,i) => (
+        {сategoriesArr.map((categoryName,i) => (
           <li
             key={i} 
-            onClick={() => onClickCategory(i)}
-            className={activeCategory === i ? 'active' : ''}>
-            {value}
+            onClick={() => onChangeCategory(i)}
+            className={value === i ? 'active' : ''}>
+            {categoryName}
           </li>
         ))}
       </ul>
