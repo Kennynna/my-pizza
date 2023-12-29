@@ -1,0 +1,47 @@
+.input {
+    border: 1px solid red;
+    padding: 12px 20px;
+    padding-right: 40px;
+    width: 300px;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 40px;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+        border: 1px solid rgb(241, 249, 0);
+        -webkit-box-shadow: 0px 2px 54px 4px rgba(224, 81, 25, 0.2);
+        -moz-box-shadow: 0px 2px 54px 4px rgba(224, 81, 25, 0.2);
+        box-shadow: 0px 2px 54px 4px rgba(224, 81, 25, 0.2);
+        width: 400px;
+        @media (max-width: 420px) {
+            width: 205px;
+            }
+    }
+    @media (max-width: 420px) {
+    width: 200px;
+    }
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    opacity: 0.3;
+}
+.root {
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+
+}
+
+.closeSearch{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}

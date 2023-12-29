@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import  Search  from "./search";
 
-const Header = () => {
+const Header = ({searchValue, setSearchValue,delSearch}) => {
   return (
     <div className="header">
       <div className="container">
@@ -13,6 +14,7 @@ const Header = () => {
             </div>
           </div>
         </Link>
+
 
         <Link to={`/Login`}>
         <div className="header__Login">Login</div>
@@ -59,6 +61,7 @@ const Header = () => {
 
 
       </div>
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
     </div>
   );
 };
