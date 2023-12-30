@@ -1,0 +1,34 @@
+.root {
+    text-align: center;
+    li {
+        display: inline-block;
+
+        a {
+            text-align: center;
+            width: 45px;
+            height: 45px;
+            line-height: 18px;
+            padding: 10px;
+            border: 1px solid #fe1e1e;
+            border-radius: 0px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: 0.1s;
+            &:hover {
+                border: 1px solid rgb(203, 216, 10);
+                scale: 1.1;
+                color: #000;
+            }
+            color: #fe1e1e;
+        }
+    }
+
+    :global {
+        .selected {
+            a {
+                color: rgb(203, 216, 10); /* Изменяем цвет ссылки при наведении на li */
+                background-color: #fe1e1e;
+            }
+        }
+    }
+}
