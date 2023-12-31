@@ -7,10 +7,11 @@ import PizzaBlcok from "../components/PizzaBlock";
 import Pagination from "../components/Pagination";
 //Сторонние библеотеки склетеон 
 import Skeleton from "../components/PizzaBlock/Skeleton";
+import { SearchContext } from "../App";
 
 
 
-export const Home = ({ searchValue }) => {
+export const Home = () => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -19,6 +20,7 @@ export const Home = ({ searchValue }) => {
     name: "популярности",
     sortProperty: "rating",
   }); //Sort jsx
+  const { searchValue } = React.useContext(SearchContext);
 
   React.useEffect(() => {
     setIsLoading(true);
@@ -28,8 +30,9 @@ export const Home = ({ searchValue }) => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
+
     fetch(
-      `https://657c7774853beeefdb998017.mockapi.io/items?&page=${currentPage}&limit=4${category}&sortBy=${sortBy}&order=${order}${search}`
+      `https://657c7774853beeefdb998017.mockapi.io/items?&page=${currentPage}&limit=5${category}&sortBy=${sortBy}&order=${order}${search}`
     )
       .then((res) => {
         if (!res.ok) {
@@ -42,7 +45,7 @@ export const Home = ({ searchValue }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        alert(`${error}`);
+        console.log(`${error}`);
         setIsLoading(false);
       });
     window.scroll(0, 0);
@@ -53,6 +56,7 @@ export const Home = ({ searchValue }) => {
     <Skeleton key={index} />
   ));
   return (
+    
     <div className="container">
       <div className="content__top">
         <Categories
@@ -64,9 +68,7 @@ export const Home = ({ searchValue }) => {
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">
         {
-          isLoading //спррашиваем если ты true то грузи фейк если false то грузи наши пиццы
-            ? skeleton
-            : pizzas
+          isLoading ? skeleton : pizzas
           /*{...obj} вариант если мы уверены что имена объектов будут совпадать с именами нашимх пропсов в функции
               2 вариант
               title = {obj.title} //слева это наши пропсы из PizzaBlock а справа это наш json Объект с пиццами
