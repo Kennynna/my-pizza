@@ -129,7 +129,7 @@ body {
     }
   }
   //Корзина
-  .content__items{
+  .content__items {
     display: block;
   }
 
@@ -144,27 +144,24 @@ body {
       justify-items: center;
       text-align: center;
       align-items: center;
-      .cart__item-img{
-        img{
-        width: 150px;
-        height: 150px;
+      .cart__item-img {
+        img {
+          width: 150px;
+          height: 150px;
         }
-
       }
-      h3{
+      h3 {
         width: max-content;
       }
-      p{
+      p {
         width: max-content;
       }
-      
     }
 
     &-img {
       display: flex;
       align-items: center;
       margin-right: 15px;
-
 
       img {
         width: 80px;
@@ -177,7 +174,6 @@ body {
       flex-direction: column;
       justify-content: center;
       width: 40%;
-
 
       h3 {
         font-weight: bold;
@@ -356,5 +352,21 @@ body {
       font-weight: 600;
       font-size: 18px;
     }
+  }
+}
+.nfBtn {
+  padding: 12px;
+  margin-top: 20px;
+  background-color: red;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    background-color: rgb(229, 5, 5);
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
   }
 }

@@ -30,7 +30,6 @@ export const Home = () => {
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
-
     fetch(
       `https://657c7774853beeefdb998017.mockapi.io/items?&page=${currentPage}&limit=5${category}&sortBy=${sortBy}&order=${order}${search}`
     )
@@ -49,7 +48,7 @@ export const Home = () => {
         setIsLoading(false);
       });
     window.scroll(0, 0);
-  }, [categoryId, sortType, searchValue,currentPage]);
+  }, [categoryId, sortType, searchValue, currentPage]);
 
   const pizzas = items.map((obj) => <PizzaBlcok {...obj} />);
   const skeleton = [...new Array(6)].map((_, index) => (
@@ -64,6 +63,7 @@ export const Home = () => {
           onChangeCategory={(i) => setCategoryId(i)}
         />
         <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        
       </div>
       <h2 className="content__title">Все пиццы</h2>
       <div className="content__items">

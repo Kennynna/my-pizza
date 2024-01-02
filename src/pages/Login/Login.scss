@@ -37,6 +37,9 @@
           cursor: pointer;
           &:hover {
             background-color: #e63e00; // более темный оттенок пепперони
+            -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+            -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+            box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
           }
         }
   
