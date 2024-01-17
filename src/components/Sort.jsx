@@ -15,7 +15,6 @@ const Sort = ({ value, onChangeSort }) => {
     onChangeSort(i); //передает выбранный элемент в состояние списка сортировки
     setOpen(false); //скрывает список
   };
-
   return (
     <div className="sort">
       <div className="sort__label">
