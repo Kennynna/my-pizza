@@ -9,24 +9,35 @@ import Pagination from "../components/Pagination";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import { SearchContext } from "../App";
 
+//redux
+import {useDispatch, useSelector} from 'react-redux'
+import {setCategoryID} from '../redux/slices/filterSlice'
+
+
 
 
 export const Home = () => {
+  //redux обработчики 
+  const dispath = useDispatch()
+  const {categoryId, sort} = useSelector((state) => state.filter)
+
+
+  const onChangeCategory = (id) => {
+    dispath(setCategoryID(id))
+  }
+
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [categoryId, setCategoryId] = React.useState(0); //Category jsx изначально были в этом компоенте
-  const [sortType, setSortType] = React.useState({
-    name: "популярности",
-    sortProperty: "rating",
-  }); //Sort jsx
   const { searchValue } = React.useContext(SearchContext);
 
+  
+  
   React.useEffect(() => {
     setIsLoading(true);
 
-    const sortBy = sortType.sortProperty.replace("-", "");
-    const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
+    const sortBy = sort.sortProperty.replace("-", "");
+    const order = sort.sortProperty.includes("-") ? "asc" : "desc";
     const category = categoryId > 0 ? `category=${categoryId}` : "";
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -48,9 +59,8 @@ export const Home = () => {
         setIsLoading(false);
       });
     window.scroll(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]);
-
-  const pizzas = items.map((obj) => <PizzaBlcok {...obj} />);
+  }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+  const pizzas = items.map((obj, index) => <PizzaBlcok {...obj} key={index*12} />);
   const skeleton = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
   ));
@@ -60,9 +70,9 @@ export const Home = () => {
       <div className="content__top">
         <Categories
           value={categoryId}
-          onChangeCategory={(i) => setCategoryId(i)}
+          onChangeCategory={onChangeCategory}
         />
-        <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
+        <Sort/>
         
       </div>
       <h2 className="content__title">Все пиццы</h2>

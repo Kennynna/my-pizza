@@ -26,6 +26,7 @@ function PizzaBlcok({ title, price, imageUrl, sizes, types }) {
         <ul>
           {sizes.map((size, i) => (
             <li
+              key={i}
               onClick={() => setActiveSize(i)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
               className={activeSize === i ? "active" : ""}
             >

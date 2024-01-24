@@ -20,7 +20,10 @@ const Search = () => {
 
       <input
         value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        onChange={(event) => {setSearchValue(event.target.value)
+        }
+        }
+        
         className={styles.input}
         placeholder="Поиск пиццы..."
       />

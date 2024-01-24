@@ -1,6 +1,12 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {setSort} from '../redux/slices/filterSlice'
 
-const Sort = ({ value, onChangeSort }) => {
+const Sort = () => {
+  const dispath = useDispatch()
+  const sort = useSelector(state => state.filter.sort) 
+
+
   const [open, setOpen] = React.useState(false);
   const list = [
     { name: 'популярности (DESC)', sortProperty: 'rating' },
@@ -10,9 +16,8 @@ const Sort = ({ value, onChangeSort }) => {
     { name: 'алфавиту (DESC)', sortProperty: 'title' },
     { name: 'алфавиту (ASK)', sortProperty: '-title' },
   ];
-  const onClickListItem = (i) => {
-    // функция которая вызывается при нажатия элемента списка сортировки и затем скрывается а ее аргумент
-    onChangeSort(i); //передает выбранный элемент в состояние списка сортировки
+  const onClickListItem = (obj) => {
+    dispath(setSort(obj))
     setOpen(false); //скрывает список
   };
   return (
@@ -31,7 +36,7 @@ const Sort = ({ value, onChangeSort }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setOpen(!open)}>{value.name}</span>
+        <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
         <div className="sort__popup">
@@ -40,7 +45,7 @@ const Sort = ({ value, onChangeSort }) => {
               <li
                 key={i}
                 onClick={() => onClickListItem(obj)} // мы могли бы описать функцию сверху, но можно описать ее так если там тольк один блок кода(то есть действие)
-                className={value.sortProperty === obj.sortProperty ? "active" : ""}
+                className={sort.sortProperty === obj.sortProperty ? "active" : ""}
               >
                 {obj.name}
               </li>

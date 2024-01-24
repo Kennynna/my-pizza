@@ -16,8 +16,11 @@ import {
   Route,
 } from "react-router-dom";
 
+//Redux
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './redux/slices/filterSlice.js'
+
 //json
-// import pizzas from './assets/pizzas.json'; данные перемещены на mok API
 // https://657c7774853beeefdb998017.mockapi.io/items
 
 export const SearchContext = React.createContext('')
@@ -29,10 +32,10 @@ function App() {
 
     <div className="wrapper">
       <SearchContext.Provider value={{ searchValue, setSearchValue }}>
-        <Header/>
+        <Header />
         <div className="content">
           <Routes>
-            <Route path='/' element={<Home/>} />
+            <Route path='/' element={<Home />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='*' element={<NotFound />} />
             <Route path='/login' element={<Login />} />
